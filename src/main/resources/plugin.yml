@@ -1,0 +1,6 @@
+name: NiceDeaths
+main: com.github.DarkVanityOfLight.NiceDeaths.Main
+version: 1.0
+author: DarkVanityOfLight
+api-version: '1.16'
+softdepend: [Factions]
