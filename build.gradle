@@ -30,6 +30,10 @@ dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT'
 }
 
+dependencies {
+    compileOnly fileTree(include: ['*.jar'], dir: 'libs')
+}
+
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
