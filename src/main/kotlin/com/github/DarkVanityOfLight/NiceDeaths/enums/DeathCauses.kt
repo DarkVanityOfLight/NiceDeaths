@@ -234,6 +234,8 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
         override val reg: Regex = Regex("^\\w{3,16} died$")
     };
 
+    override val deadPlayerRegex: Regex = Regex("^\\w{3,16}")
+
     override fun matches(message: String): Boolean {
         return match(getRegex(), message)
     }
