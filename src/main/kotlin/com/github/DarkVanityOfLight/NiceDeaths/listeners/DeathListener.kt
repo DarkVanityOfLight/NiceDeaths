@@ -3,20 +3,22 @@ package com.github.DarkVanityOfLight.NiceDeaths.listeners
 
 import com.github.DarkVanityOfLight.NiceDeaths.enums.DeathCauses
 import com.github.DarkVanityOfLight.NiceDeaths.parser.ConfigParser
+import com.massivecraft.factions.FPlayers
 import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.PlayerDeathEvent
 
-class DeathListener(val configParser: ConfigParser) : Listener {
+class DeathListener(private val configParser: ConfigParser) : Listener {
 
     @EventHandler
     fun onDeath(event: PlayerDeathEvent){
 
+        val fPlayer = FPlayers.getInstance().getByPlayer(event.entity)
         DeathCauses.values().forEach { deathCause ->
             event.deathMessage?.let { deathMessage ->
                 if (deathCause.matches(deathMessage)){
-                    var deathMessage = configParser.deathMessages[deathCause]?.get(0)
+                    var deathMessage = configParser.deathMessages[fPlayer.faction.tag]?.get(deathCause)?.get(0)
 
                     if (deathMessage != null) {
                     // Check if deadPlayer is null and if yes just replace with ""
