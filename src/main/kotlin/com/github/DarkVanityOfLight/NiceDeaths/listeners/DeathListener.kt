@@ -1,6 +1,6 @@
 package com.github.DarkVanityOfLight.NiceDeaths.listeners
 
-import com.github.DarkVanityOfLight.NiceDeaths.Main
+
 import com.github.DarkVanityOfLight.NiceDeaths.enums.DeathCauses
 import com.github.DarkVanityOfLight.NiceDeaths.parser.ConfigParser
 import org.bukkit.Bukkit
