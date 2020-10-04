@@ -18,21 +18,25 @@ class DeathListener(val configParser: ConfigParser) : Listener {
                 if (deathCause.matches(deathMessage)){
                     var deathMessage = configParser.deathMessages[deathCause]?.get(0)
 
+                    if (deathMessage != null) {
                     // Check if deadPlayer is null and if yes just replace with ""
                     val deadPlayer : String = if (deathCause.findDeadPlayer(event.deathMessage) == null) ""
                     else deathCause.findDeadPlayer(event.deathMessage)!!
-                    deathMessage = deathMessage?.replace("{player}", deadPlayer)
+                    deathMessage = deathMessage.replace("{player}", deadPlayer)
 
                     val killer : String = if (deathCause.findKiller(event.deathMessage) == null) ""
                     else deathCause.findKiller(event.deathMessage)!!
-                    deathMessage?.replace("{killer}", killer)
+                        deathMessage.replace("{killer}", killer)
 
                     val weapon : String = if (deathCause.findWeapon(event.deathMessage) == null) ""
                     else deathCause.findWeapon(event.deathMessage)!!
-                    deathMessage?.replace("{weapon}", weapon)
+                        deathMessage.replace("{weapon}", weapon)
 
                     event.deathMessage = deathMessage
                     return
+                    }else{
+                        return
+                    }
                 }
             }
         }
