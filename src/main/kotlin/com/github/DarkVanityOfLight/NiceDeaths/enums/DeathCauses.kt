@@ -125,142 +125,142 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer, IHaveAKiller, IHaveAWeap
     },
 
     FIREWORK {
-        override val reg: Regex = Regex("\\w{3,16} went off with a bang")
+        override val reg: Regex = Regex("^\\w{3,16} went off with a bang")
     },
     FIREWORK_WITH_PLAYER_WITH_ITEM {
         override val reg: Regex =
-            Regex("\\w{3,16} went off with a bang due to a firework fired from \\w{4,35} by \\w{3,16}")
+            Regex("^\\w{3,16} went off with a bang due to a firework fired from \\w{4,35} by \\w{3,16}")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     LAVA {
-        override val reg: Regex = Regex("\\w{3,16} tried to swim in lava$")
+        override val reg: Regex = Regex("^\\w{3,16} tried to swim in lava$")
     },
     LAVA_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} tried to swim in lava to escape \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} tried to swim in lava to escape \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     LIGHTNING {
-        override val reg: Regex = Regex("\\w{3,16} was struck by lightning$")
+        override val reg: Regex = Regex("^\\w{3,16} was struck by lightning$")
     },
     LIGHTNING_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} was struck by lightning whilst fighting \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} was struck by lightning whilst fighting \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     MAGMA_BLOCK {
-        override val reg: Regex = Regex("\\w{3,16} discovered the floor was lava$")
+        override val reg: Regex = Regex("^\\w{3,16} discovered the floor was lava$")
     },
     MAGMA_BLOCK_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} walked into danger zone due to \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} walked into danger zone due to \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     MAGIC {
-        override val reg: Regex = Regex("\\w{3,16} was killed by magic$")
+        override val reg: Regex = Regex("^\\w{3,16} was killed by magic$")
     },
     MAGIC_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} was killed by \\w{3,16} using magic$")
+        override val reg: Regex = Regex("^\\w{3,16} was killed by \\w{3,16} using magic$")
     },
     MAGIC_WITH_PLAYER_WITH_ITEM {
-        override val reg: Regex = Regex("\\w{3,16} was killed by \\w{3,16} using \\w{4,35}$")
+        override val reg: Regex = Regex("^\\w{3,16} was killed by \\w{3,16} using \\w{4,35}$")
     },
     OTHER_MAGIC {
-        override val reg: Regex = Regex("\\w{3,16} was killed by magic using \\w{4,35}$")
+        override val reg: Regex = Regex("^\\w{3,16} was killed by magic using \\w{4,35}$")
         override val weaponRegex: Regex? = Regex("using \\w{4,35}\$")
     },
 
     PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} was slain by \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} was slain by \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     PLAYER_WITH_ITEM {
-        override val reg: Regex = Regex("\\w{3,16} was slain by \\w{3,16} using \\w{4,35}$")
+        override val reg: Regex = Regex("^\\w{3,16} was slain by \\w{3,16} using \\w{4,35}$")
         override val weaponRegex: Regex? = Regex("using \\w{4,35}\$")
     },
 
     FIREBALL_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} was fireballed by \\w{3,16}$")
-        override val killerRegex: Regex? = Regex("\\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} was fireballed by \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("^\\w{3,16}$")
     },
     FIREBALL_WITH_PLAYER_WITH_ITEM {
-        override val reg: Regex = Regex("\\w{3,16} was fireballed by \\w{3,16} using \\w{4,35}$")
+        override val reg: Regex = Regex("^\\w{3,16} was fireballed by \\w{3,16} using \\w{4,35}$")
         override val weaponRegex: Regex? = Regex("using \\w{4,35}\$")
     },
 
     BEE_STING {
-        override val reg: Regex = Regex("\\w{3,16} was stung to death$")
+        override val reg: Regex = Regex("^\\w{3,16} was stung to death$")
     },
 
     SHOT_SKULL_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} was shot by a skull from \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} was shot by a skull from \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     STARVING {
-        override val reg: Regex = Regex("\\w{3,16} starved to death$")
+        override val reg: Regex = Regex("^\\w{3,16} starved to death$")
     },
     STARVING_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} starved to death whilst fighting \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} starved to death whilst fighting \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     SUFFOCATED {
-        override val reg: Regex = Regex("\\w{3,16} suffocated in wall$")
+        override val reg: Regex = Regex("^\\w{3,16} suffocated in wall$")
     },
     SUFFOCATED_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} suffocated in wall whilst fighting \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} suffocated in wall whilst fighting \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     SQUASHED {
-        override val reg: Regex = Regex("\\w{3,16} was squished too much$")
+        override val reg: Regex = Regex("^\\w{3,16} was squished too much$")
     },
     SQUASHED_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} was squashed by \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} was squashed by \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     SWEET_BERRY {
-        override val reg: Regex = Regex("\\w{3,16} was poked to death by a sweet berry bush$")
+        override val reg: Regex = Regex("^\\w{3,16} was poked to death by a sweet berry bush$")
     },
     SWEET_BERRY_WITH_PLAYER {
         override val reg: Regex =
-            Regex("\\w{3,16} was poked to death by a sweet berry bush whilst trying to escape \\w{3,16}$")
+            Regex("^\\w{3,16} was poked to death by a sweet berry bush whilst trying to escape \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     THORNS_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} was killed trying to hurt \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} was killed trying to hurt \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     THORNS_WITH_PLAYER_WITH_ITEM {
-        override val reg: Regex = Regex("\\w{3,16} was killed by \\w{4,35} trying to hurt \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} was killed by \\w{4,35} trying to hurt \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     TRIDENT_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} was impaled by \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} was impaled by \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     TRIDENT_WITH_PLAYER_WITH_ITEM {
-        override val reg: Regex = Regex("\\w{3,16} was impaled by \\w{3,16} with \\w{4,35}$")
+        override val reg: Regex = Regex("^\\w{3,16} was impaled by \\w{3,16} with \\w{4,35}$")
         override val weaponRegex: Regex? = Regex("with \\w{4,35}\$")
     },
 
     VOID {
-        override val reg: Regex = Regex("\\w{3,16} fell out of the world$")
+        override val reg: Regex = Regex("^\\w{3,16} fell out of the world$")
     },
     VOID_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} didn't want to live in the same world as \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} didn't want to live in the same world as \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     WITHER {
-        override val reg: Regex = Regex("\\w{3,16} withered away$")
+        override val reg: Regex = Regex("^\\w{3,16} withered away$")
     },
     WITHER_WITH_PLAYER {
-        override val reg: Regex = Regex("\\w{3,16} withered away whilst fighting \\w{3,16}$")
+        override val reg: Regex = Regex("^\\w{3,16} withered away whilst fighting \\w{3,16}$")
         override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
