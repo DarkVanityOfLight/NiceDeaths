@@ -6,10 +6,11 @@ package com.github.DarkVanityOfLight.NiceDeaths.enums
 
 */
 
-enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
+enum class DeathCauses : ICauseDeath, IHaveADeadPlayer, IHaveAKiller {
 
     ARROW_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} was shot by \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     ARROW_WITH_PLAYER_ITEM {
         override val reg: Regex = Regex("^\\w{3,16} was shot by \\w{3,16} using \\w{4,35}$")
@@ -17,6 +18,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
 
     SNOWBALL_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} was pummeled by \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     SNOWBALL_WITH_ITEM {
         override val reg: Regex = Regex("^\\w{3,16} was pummeled by \\w{3,16} using \\w{4,35}$")
@@ -27,6 +29,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     CACTUS_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} walked into a cactus whilst trying to escape \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     DROWNING {
@@ -34,6 +37,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     DROWNING_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} drowned whilst trying to escape \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     ELYTRA {
@@ -41,6 +45,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     ELYTRA_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} experienced kinetic energy whilst trying to escape \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     EXPLOSION {
@@ -48,6 +53,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     EXPLOSION_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} was blown up by \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     EXPLOSION_WITH_PLAYER_WITH_ITEM {
         override val reg: Regex = Regex("^\\w{3,16} was blown up by \\w{3,16} using \\w{4,35}$")
@@ -61,6 +67,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     FALLING_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} hit the ground too hard whilst trying to escape \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     FALLING_MORE_THEN_5 {
         override val reg: Regex = Regex("^\\w{3,16} fell from a high place$")
@@ -89,12 +96,14 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     FALLING_BLOCK_ANVIL_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} was squashed by a falling anvil whilst fighting \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     FALLING_BLOCK {
         override val reg: Regex = Regex("^\\w{3,16} was squashed by a falling block$")
     },
     FALLING_BLOCK_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} was squashed by a falling block whilst fighting \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     FIRE {
@@ -102,12 +111,14 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     FIRE_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} walked into fire whilst fighting \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     FIRE_NOT_IN_FIRE {
         override val reg: Regex = Regex("^\\w{3,16} burned to death$")
     },
     FIRE_NOT_IN_FIRE_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} was burnt to a crisp whilst fighting \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     FIREWORK {
@@ -116,6 +127,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     FIREWORK_WITH_PLAYER_WITH_ITEM {
         override val reg: Regex =
             Regex("\\w{3,16} went off with a bang due to a firework fired from \\w{4,35} by \\w{3,16}")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     LAVA {
@@ -123,6 +135,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     LAVA_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} tried to swim in lava to escape \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     LIGHTNING {
@@ -130,6 +143,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     LIGHTNING_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} was struck by lightning whilst fighting \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     MAGMA_BLOCK {
@@ -137,6 +151,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     MAGMA_BLOCK_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} walked into danger zone due to \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     MAGIC {
@@ -154,6 +169,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
 
     PLAYER {
         override val reg: Regex = Regex("\\w{3,16} was slain by \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     PLAYER_WITH_ITEM {
         override val reg: Regex = Regex("\\w{3,16} was slain by \\w{3,16} using \\w{4,35}$")
@@ -161,6 +177,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
 
     FIREBALL_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} was fireballed by \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     FIREBALL_WITH_PLAYER_WITH_ITEM {
         override val reg: Regex = Regex("\\w{3,16} was fireballed by \\w{3,16} using \\w{4,35}$")
@@ -172,6 +189,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
 
     SHOT_SKULL_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} was shot by a skull from \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     STARVING {
@@ -179,6 +197,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     STARVING_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} starved to death whilst fighting \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     SUFFOCATED {
@@ -186,12 +205,14 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     SUFFOCATED_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} suffocated in wall whilst fighting \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     SQUASHED {
         override val reg: Regex = Regex("\\w{3,16} was squished too much$")
     },
     SQUASHED_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} was squashed by \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     SWEET_BERRY {
@@ -200,17 +221,21 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     SWEET_BERRY_WITH_PLAYER {
         override val reg: Regex =
             Regex("\\w{3,16} was poked to death by a sweet berry bush whilst trying to escape \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     THORNS_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} was killed trying to hurt \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     THORNS_WITH_PLAYER_WITH_ITEM {
         override val reg: Regex = Regex("\\w{3,16} was killed by \\w{4,35} trying to hurt \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     TRIDENT_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} was impaled by \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
     TRIDENT_WITH_PLAYER_WITH_ITEM {
         override val reg: Regex = Regex("\\w{3,16} was impaled by \\w{3,16} with \\w{4,35}$")
@@ -221,6 +246,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     VOID_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} didn't want to live in the same world as \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     WITHER {
@@ -228,6 +254,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     },
     WITHER_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} withered away whilst fighting \\w{3,16}$")
+        override val killerRegex: Regex? = Regex("\\w{3,16}$")
     },
 
     DIED {
@@ -235,6 +262,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
     };
 
     override val deadPlayerRegex: Regex = Regex("^\\w{3,16}")
+    override val killerRegex: Regex? = null
 
     override fun matches(message: String): Boolean {
         return match(getRegex(), message)
@@ -248,13 +276,21 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
         return findFirstOccurence(deadPlayerRegex, deathMessage)
     }
 
+    override fun findKiller(deathMessage: String): String? {
+        return findFirstOccurence(killerRegex, deathMessage)
+    }
+
     companion object {
         fun match(reg: Regex, message: String): Boolean {
             return reg.matches(message)
         }
 
-        fun findFirstOccurence(reg: Regex, message: String) : String?{
-            return reg.find(message)?.value
+        fun findFirstOccurence(reg: Regex?, message: String): String? {
+            return reg?.find(message)?.value
+        }
+
+        fun findLastOccurence(reg: Regex?, message: String): String? {
+            return reg?.findAll(message)?.last()?.value
         }
 
     }
