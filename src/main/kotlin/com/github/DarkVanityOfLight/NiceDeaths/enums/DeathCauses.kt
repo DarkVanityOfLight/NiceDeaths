@@ -273,7 +273,7 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer, IHaveAKiller, IHaveAWeap
     override val weaponRegex: Regex? = null
 
     override fun matches(message: String): Boolean {
-        return match(getRegex(), message)
+        return match(getRegex(), message)!!
     }
 
     override fun getRegex(): Regex {
