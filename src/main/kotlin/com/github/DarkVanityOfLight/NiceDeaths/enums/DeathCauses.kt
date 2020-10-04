@@ -6,7 +6,7 @@ package com.github.DarkVanityOfLight.NiceDeaths.enums
 
 */
 
-enum class DeathCauses : ICauseDeath {
+enum class DeathCauses : ICauseDeath, IHaveADeadPlayer {
 
     ARROW_WITH_PLAYER {
         override val reg: Regex = Regex("^\\w{3,16} was shot by \\w{3,16}$")
@@ -242,9 +242,17 @@ enum class DeathCauses : ICauseDeath {
         return reg
     }
 
+    override fun findDeadPlayer(deathMessage: String): String? {
+        return findFirstOccurence(deadPlayerRegex, deathMessage)
+    }
+
     companion object {
         fun match(reg: Regex, message: String): Boolean {
             return reg.matches(message)
+        }
+
+        fun findFirstOccurence(reg: Regex, message: String) : String?{
+            return reg.find(message)?.value
         }
 
     }
