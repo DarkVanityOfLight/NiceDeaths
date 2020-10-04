@@ -228,8 +228,11 @@ enum class DeathCauses : ICauseDeath {
     },
     WITHER_WITH_PLAYER {
         override val reg: Regex = Regex("\\w{3,16} withered away whilst fighting \\w{3,16}$")
-    };
+    },
 
+    DIED {
+        override val reg: Regex = Regex("^\\w{3,16} died$")
+    };
 
     override fun matches(message: String): Boolean {
         return match(getRegex(), message)
