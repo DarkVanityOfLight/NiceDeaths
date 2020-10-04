@@ -1,8 +1,8 @@
 package com.github.DarkVanityOfLight.NiceDeaths.enums
 
 interface IHaveAKiller {
-    val killerRegex : Regex
+    val killerRegex : Regex?
 
-    fun findKiller(deathMessage : String) : String
+    fun findKiller(deathMessage : String) : String?
 
 }
