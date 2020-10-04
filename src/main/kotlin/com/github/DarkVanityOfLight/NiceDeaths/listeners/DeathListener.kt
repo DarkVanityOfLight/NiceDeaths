@@ -13,13 +13,14 @@ class DeathListener(val configParser: ConfigParser) : Listener {
     @EventHandler
     fun onDeath(event: PlayerDeathEvent){
 
-        DeathCauses.values().forEach { DeathCause ->
+        DeathCauses.values().forEach { deathCause ->
             event.deathMessage?.let { deathMessage ->
-                if (DeathCause.matches(deathMessage)){
-
+                if (deathCause.matches(deathMessage)){
+                    event.deathMessage = configParser.deathMessages[deathCause]?.get(0)
+                    return
                 }
             }
         }
-
+        Bukkit.getLogger().info("Could not find the death cause for the death of player ${event.entity.name}")
     }
 }
