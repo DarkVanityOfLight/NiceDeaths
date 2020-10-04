@@ -280,15 +280,15 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer, IHaveAKiller, IHaveAWeap
         return reg
     }
 
-    override fun findDeadPlayer(deathMessage: String): String? {
+    override fun findDeadPlayer(deathMessage: String?): String? {
         return findFirstOccurence(deadPlayerRegex, deathMessage)
     }
 
-    override fun findKiller(deathMessage: String): String? {
+    override fun findKiller(deathMessage: String?): String? {
         return findFirstOccurence(killerRegex, deathMessage)
     }
 
-    override fun findWeapon(deathMessage: String): String? {
+    override fun findWeapon(deathMessage: String?): String? {
         var firstOccurence = findFirstOccurence(weaponRegex, deathMessage)
         firstOccurence =  firstOccurence?.replaceFirst("using", "")
         firstOccurence = firstOccurence?.replaceFirst("with", "")
@@ -297,16 +297,16 @@ enum class DeathCauses : ICauseDeath, IHaveADeadPlayer, IHaveAKiller, IHaveAWeap
     }
 
     companion object {
-        fun match(reg: Regex, message: String): Boolean {
-            return reg.matches(message)
+        fun match(reg: Regex, message: String?): Boolean? {
+            return message?.let { reg.matches(it) }
         }
 
-        fun findFirstOccurence(reg: Regex?, message: String): String? {
-            return reg?.find(message)?.value
+        fun findFirstOccurence(reg: Regex?, message: String?): String? {
+            return message?.let { reg?.find(it)?.value }
         }
 
-        fun findLastOccurence(reg: Regex?, message: String): String? {
-            return reg?.findAll(message)?.last()?.value
+        fun findLastOccurence(reg: Regex?, message: String?): String? {
+            return message?.let { reg?.findAll(it)?.last()?.value }
         }
 
     }
