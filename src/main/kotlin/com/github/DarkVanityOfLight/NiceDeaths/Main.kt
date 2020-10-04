@@ -10,6 +10,6 @@ class Main : JavaPlugin() {
 
     override fun onEnable() {
         configParser.read()
-        Bukkit.getPluginManager().registerEvents(DeathListener(this), this)
+        Bukkit.getPluginManager().registerEvents(DeathListener(configParser), this)
     }
 }
