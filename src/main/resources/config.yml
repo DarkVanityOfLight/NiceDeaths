@@ -1,2 +1,4 @@
-DIED:
-  - "{player} is dead"
+messageMapping:
+  example-faction:
+    DIED:
+      - "{player} died"
