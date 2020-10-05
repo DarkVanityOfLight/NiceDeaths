@@ -18,7 +18,7 @@ class ConfigParser(private val main: Main) {
         for(faction : String in config.getConfigurationSection("messageMapping")?.getKeys(false)!!){
             val factionDeathMessage : MutableMap<ICauseDeath, Array<String>> = emptyMap<ICauseDeath, Array<String>>().toMutableMap()
             DeathCauses.values().forEach { deathCause ->
-                val messages : Array<String> = config.getStringList("messageMapping$faction.${deathCause.name}").toTypedArray<String>()
+                val messages : Array<String> = config.getStringList("messageMapping.$faction.${deathCause.name}").toTypedArray<String>()
                 if(messages.isNotEmpty()) factionDeathMessage[deathCause] = messages
             }
             if (factionDeathMessage.isNotEmpty()) deathMessages[faction] = factionDeathMessage
